@@ -1,26 +1,57 @@
 //arc(120,120,80,80,0,PI+QUARTER_PI ,OPEN);
-int x=100;
-int y= 380;
+/*int x=100;
+int y= 380;*/
 public void setup()
 {
+// background(255);
  size(600,600);
+ 
  
 }
 public void draw() 
-{background(255);
-stroke(255,70,70);
- fill(255,102,102);
+{
+fractal(100,380,200,140);
+/*stroke(255,204,255);
+ fill(229,204,255);
+ //first rect,bottom left
 translate(x,y);
 rotate(PI/6.0);
-rect(0,0,200,140,100);//first rect,bottom left
+rect(0,0,200,140,100);
 rotate(-PI/6.0);
 translate(-x, -y);
-translate(140,230);
-rotate(PI/2.0);
+//2nd
+translate(105,230);
+rotate(PI/2.3);
 rect(0,0,200,140,50);
-	
-}
-public void fractal()
-{
+rotate(-PI/2.3);
+translate(-105,-230);
 
+//3rd
+translate(-25,200);
+rotate(-PI/3.0);
+rect(0,0,200,140,50);
+rotate(PI/3.0);
+translate(25,-200);	
+//fourth
+translate(165,10);
+rotate(0);
+rect(0,0,200,140,50);
+rotate(0);
+translate(-165,-10);*/
+}
+public void fractal(int x, int y, int len, int wid) 
+{
+	//fractal(100,380,200,140);
+	if(len<=5)
+	{
+		
+		fill(229,204,255);
+		rect(x,y,len,wid,50);
+	}
+	else 
+	{
+		
+		fractal(x+20,y-20,len-20,wid-20);
+	
+	}
 }
