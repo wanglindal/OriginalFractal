@@ -1,84 +1,50 @@
-//arc(120,120,80,80,0,PI+QUARTER_PI ,OPEN);
-/*int x=100;
-int y= 380;*/
 public void setup()
 {
-// background(255);
  size(600,600);
- 
- 
+ background(255);
 }
+ 
+ 
 public void draw() 
 {
-fractal(100,380,300,140);
-/*stroke(255,204,255);
- fill(229,204,255);
- //first rect,bottom left
-translate(x,y);
-rotate(PI/6.0);
-rect(0,0,200,140,100);
-rotate(-PI/6.0);
-translate(-x, -y);
-//2nd
-translate(105,230);
-rotate(PI/2.3);
-rect(0,0,200,140,50);
-rotate(-PI/2.3); 
-translate(-105,-230);
 
-//3rd
-translate(-25,200);
-rotate(-PI/3.0);
-rect(0,0,200,140,50);
-rotate(PI/3.0);
-translate(25,-200);	
-//fourth
-translate(165,10);
-rotate(0);
-rect(0,0,200,140,50);
-rotate(0);
-translate(-165,-10);*/
+star(300,300,300,300,30);
 }
-public void fractal(int x, int y, int len, int wid) 
-{
-	//fractal(100,380,200,140);
-	if(x<=20)
-	{
-		
-		fill(229,204,255);
-		rect(x,y,len,wid);
-	}
-	else 
-	{
-/*stroke(255,204,255);
- fill(229,204,255);
- //first rect,bottom left
-translate(x,y);
-rotate(PI/6.0);
-rect(0,0,200,140,100);
-rotate(-PI/6.0);
-translate(-x, -y);
-//2nd
-translate(105,230);
-rotate(PI/2.3);
-rect(0,0,200,140,50);
-rotate(-PI/2.3); 
-translate(-105,-230);
+public void star(float x, float y, float radius1, float radius2, int npoints)
+ {
+ float angle = TWO_PI / npoints;
+  float halfAngle = angle/2.0;
+  if(radius1>20)
+  { 
+  	stroke(255,153,51);
+  	fill(242,218,98);
+  	if(x>200)
+  	{
+  		stroke(255,126,51);
+  		fill(255,153,51);
+  	}
+  	
+  	if(x>400)
+  	{
+  		stroke(250,76,57);
+  		fill(255,102,51);
+  	}
+  beginShape();
+  for (float a = 0; a < TWO_PI; a += angle)
+   {
+    float sx = x + cos(a) * radius2;
+    float sy = y + sin(a) * radius2;
+    star(x+cos(a)*radius2/2, y+sin(a)*radius2/2, radius1/5, radius2-5, npoints-5);
+    vertex(sx, sy);
+    sx = x + cos(a+halfAngle) * radius1;
+    sy = y + sin(a+halfAngle) * radius1;
+    vertex(sx, sy);   
+  }
+endShape(CLOSE);
+ }
+}
 
-//3rd
-translate(-25,200);
-rotate(-PI/3.0);
-rect(0,0,200,140,50);
-rotate(PI/3.0);
-translate(25,-200);	
-//fourth
-translate(165,10);
-rotate(0);
-rect(0,0,200,140,50);
-rotate(0);
-translate(-165,-10);
-//fractal*/
+
 
 	
-	}
-}
+	
